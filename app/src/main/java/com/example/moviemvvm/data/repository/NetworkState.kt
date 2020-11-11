@@ -2,6 +2,8 @@ package com.example.moviemvvm.data.repository
 
 //An enum is a special "class"
 // that represents a group of constants (unchangeable variables, like final variables).
+//3 tane statik değer tutan ve isimleri aşağıda yazan bir class tipi
+//Status.RUNNING diyerek bu constant değere ulaşabiliyoruz
 enum class Status {
     RUNNING,
     SUCCESS,
@@ -11,6 +13,7 @@ enum class Status {
 class NetworkState(val status: Status, val msg:String) {
     //we use companion object when smt to be static
     //we can call these 3 variables without creating an instance of this class
+    //singleton object
     companion object{
 
         val LOADED: NetworkState
