@@ -41,15 +41,16 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha05'
     implementation 'androidx.cardview:cardview:1.0.0'
 
-    // Retrofit
+    // Retrofit to make network calls
+    //adapter rxjava to make network calls
     implementation "com.squareup.retrofit2:retrofit:2.5.0"
     implementation "com.squareup.retrofit2:converter-gson:2.5.0"
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
 
-    // Gson
+    // Gson for converting gson from api call
     implementation "com.google.code.gson:gson:2.8.5"
 
-    // Glide
+    // Glide for showing images
     implementation 'com.github.bumptech.glide:glide:4.8.0'
 
     // Paging
