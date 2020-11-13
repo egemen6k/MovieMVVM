@@ -5,6 +5,8 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+//reactivex observer-observables
+
 interface TheMovieDBInterface {
 
     // https://api.themoviedb.org/3/movie/340102?api_key=460236bbc97ef75f090c333564bf3b16
