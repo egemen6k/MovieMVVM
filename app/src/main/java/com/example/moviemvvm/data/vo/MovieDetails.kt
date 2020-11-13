@@ -4,7 +4,7 @@ package com.example.moviemvvm.data.vo
 import com.google.gson.annotations.SerializedName
 
 
-//GSONda release_date olan değişkenin bizde releaseDate olacağını belirtiyoruz ...
+//GSONda "release_date" olan değişkenin bizde "releaseDate" olacağını belirtiyoruz ...
 
 data class MovieDetails(
     @SerializedName("budget")
