@@ -18,6 +18,7 @@ object TheMovieDBClient {
 
     fun getClient(): TheMovieDBInterface{
         val requestInterceptor = Interceptor{chain ->
+            //use a interceptor to put our API_KEY to our URL
             //Interceptor take only one argument which is a lambda function so
             //parenthesis can be omitted
 

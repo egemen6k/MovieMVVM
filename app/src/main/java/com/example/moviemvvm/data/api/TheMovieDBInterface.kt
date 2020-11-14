@@ -13,6 +13,9 @@ interface TheMovieDBInterface {
     // https://api.themoviedb.org/3/movie/popular?api_key=460236bbc97ef75f090c333564bf3b16
     // https://api.themoviedb.org/3/
 
+
+    //@GET kısmındaki movie_id path yerine fonksiyonu çağırırken passledğimiz
+    //movie id parametresi geçecek. Dönüş olarak Single<MovieDetails> verecek
     @GET("movie/{movie_id}")
     fun getMovieDetails(@Path("movie_id")id: Int) : Single<MovieDetails>
 }
