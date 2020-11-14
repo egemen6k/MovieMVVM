@@ -16,6 +16,8 @@ interface TheMovieDBInterface {
 
     //@GET kısmındaki movie_id path yerine fonksiyonu çağırırken passledğimiz
     //movie id parametresi geçecek. Dönüş olarak Single<MovieDetails> verecek
+    //return olarak @Path kullanılıyor bu yüzden sadece id yolladığımızda
+    //dönüş değeri Single oluyor
     @GET("movie/{movie_id}")
     fun getMovieDetails(@Path("movie_id")id: Int) : Single<MovieDetails>
 }
