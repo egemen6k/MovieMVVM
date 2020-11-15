@@ -1,9 +1,10 @@
-package com.example.moviemvvm
+package com.example.moviemvvm.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.moviemvvm.single_movie_details.SingleMovie
+import com.example.moviemvvm.R
+import com.example.moviemvvm.ui.single_movie_details.SingleMovie
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         btn.setOnClickListener {
             val intent = Intent(this, SingleMovie::class.java)
-            intent.putExtra("id",340102)
+            intent.putExtra("id",400160)
             this.startActivity(intent)
         }
     }

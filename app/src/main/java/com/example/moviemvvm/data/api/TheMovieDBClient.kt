@@ -12,7 +12,7 @@ const val BASE_URL = "https://api.themoviedb.org/3/"
 
 //poster_patch bilgisini alabileceğimiz link, bu linkin sonuna poster path
 //ekleyerek posteri elde ederiz
-const val POSTER_BASE_URL = "https://image.tmdb.org/w342"
+const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500/"
 
 object TheMovieDBClient {
 
