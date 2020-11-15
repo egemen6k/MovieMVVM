@@ -6,9 +6,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
 import com.example.moviemvvm.R
+import com.example.moviemvvm.data.api.POSTER_BASE_URL
 import com.example.moviemvvm.data.api.TheMovieDBClient
 import com.example.moviemvvm.data.api.TheMovieDBInterface
+import com.example.moviemvvm.data.vo.MovieDetails
+import kotlinx.android.synthetic.main.activity_single_movie.*
+import java.text.NumberFormat
+import java.util.*
 
 class SingleMovie : AppCompatActivity() {
 
@@ -26,9 +32,28 @@ class SingleMovie : AppCompatActivity() {
 
         viewModel = getViewModel(movieId)
 
+        //this will update our UI if any changes on our data
         viewModel.movieDetails.observe(this, Observer {
-
+            bindUI(it)
         })
+    }
+
+    fun bindUI(it: MovieDetails){
+        movie_title.text = it.title
+        movie_tagline.text = it.tagline
+        movie_release_date.text = it.releaseDate
+        movie_rating.text = it.rating.toString()
+        movie_runtime.text = it.runtime.toString() + " minutes"
+        movie_overview.text = it.overview
+
+        val formatCurrency = NumberFormat.getCurrencyInstance(Locale.US)
+        movie_budget.text = formatCurrency.format(it.budget)
+        movie_revenue.text = formatCurrency.format(it.revenue)
+
+        val moviePosterURL = POSTER_BASE_URL + it.posterPath
+        Glide.with(this)
+            .load(moviePosterURL)
+            .into(iv_movie_poster);
     }
 
     private fun getViewModel(movieId: Int): SingleMovieViewModel{
