@@ -2,6 +2,7 @@ package com.example.moviemvvm.single_movie_details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +12,7 @@ import com.example.moviemvvm.R
 import com.example.moviemvvm.data.api.POSTER_BASE_URL
 import com.example.moviemvvm.data.api.TheMovieDBClient
 import com.example.moviemvvm.data.api.TheMovieDBInterface
+import com.example.moviemvvm.data.repository.NetworkState
 import com.example.moviemvvm.data.vo.MovieDetails
 import kotlinx.android.synthetic.main.activity_single_movie.*
 import java.text.NumberFormat
@@ -25,7 +27,7 @@ class SingleMovie : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_movie)
 
-        val movieId: Int = 1
+        val movieId: Int = intent.getIntExtra("id",1)
 
         val apiService: TheMovieDBInterface = TheMovieDBClient.getClient()
         movieRepository = MovieDetailsRepository(apiService)
@@ -35,6 +37,11 @@ class SingleMovie : AppCompatActivity() {
         //this will update our UI if any changes on our data
         viewModel.movieDetails.observe(this, Observer {
             bindUI(it)
+        })
+
+        viewModel.networkState.observe(this, Observer {
+            progress_bar.visibility = if (it == NetworkState.LOADING) View.VISIBLE else View.GONE
+            txt_error.visibility = if (it == NetworkState.ERROR) View.VISIBLE else View.GONE
         })
     }
 
